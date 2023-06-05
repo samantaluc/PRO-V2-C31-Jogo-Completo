@@ -52,9 +52,9 @@ function setup() {
   rope = new Rope(7,{x:245,y:30});
   ground = new Ground(200,690,600,20);
 
-  blink.frameDelay = 20;
-  eat.frameDelay = 20;
-  sad.frameDelay = 20;
+  blink.frameDelay = 20; // ADICIONAR <<<<<<<<<<<<<<<<<<<
+  eat.frameDelay = 20; // ADICIONAR <<<<<<<<<<<<<<<<<<<
+  sad.frameDelay = 20; // ADICIONAR <<<<<<<<<<<<<<<<<<<
 
   bunny = createSprite(230,620,100,100);
   bunny.scale = 0.2;
@@ -81,23 +81,21 @@ function draw()
   background(51);
   image(bg_img,width/2,height/2,490,690);
 
-  if(fruit!=null){
+  if(fruit!=null){ // ADICIONAR <<<<<<<<<<<<<<<<<<<
     image(food,fruit.position.x,fruit.position.y,70,70);
-  }
+  } // ADICIONAR <<<<<<<<<<<<<<<<<<<
 
   rope.show();
   Engine.update(engine);
   ground.show();
 
-  if(collide(fruit,bunny)==true)
-  {
-    bunny.changeAnimation('eating');
-  }
+  if(collide(fruit,bunny)==true)  { // ADICIONAR <<<<<<<<<<<<<<<<<<<
+    bunny.changeAnimation('eating'); // ADICIONAR <<<<<<<<<<<<<<<<<<<
+  } // ADICIONAR <<<<<<<<<<<<<<<<<<<
    
-  if(collide(fruit,ground.body)==true )
-  {
-     bunny.changeAnimation('crying');
-   }
+  if(collide(fruit,ground.body)==true)  { // ADICIONAR <<<<<<<<<<<<<<<<<<<
+     bunny.changeAnimation('crying'); // ADICIONAR <<< // ADICIONAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+   } // ADICIONAR <<<<<<<<<<<<<<<<<<<
 
    drawSprites();
 }
@@ -109,19 +107,16 @@ function drop()
   fruit_con = null; 
 }
 
-function collide(body,sprite)
-{
-  if(body!=null)
-        {
-         var d = dist(body.position.x,body.position.y,sprite.position.x,sprite.position.y);
-          if(d<=80)
-            {
-              World.remove(engine.world,fruit);
-               fruit = null;
-               return true; 
-            }
-            else{
-              return false;
-            }
-         }
-}
+function collide(body,sprite) {  // ADICIONAR <<<<<<<<<<<<<<<<<<<
+  if(body!=null)        { // ADICIONAR <<<<<<<<<<<<<<<<<<<
+         var d = dist(body.position.x,body.position.y,sprite.position.x,sprite.position.y); // ADICIONAR <<<<<<<<<<<<<<<<<<<
+          if(d<=80)            { // ADICIONAR <<<<<<<<<<<<<<<<<<<
+              World.remove(engine.world,fruit); // ADICIONAR <<<<<<<<<<<<<<<<<<<
+               fruit = null; // ADICIONAR <<<<<<<<<<<<<<<<<<<
+               return true;  // ADICIONAR <<<<<<<<<<<<<<<<<<<
+            } // ADICIONAR <<<<<<<<<<<<<<<<<<<
+            else{ // ADICIONAR <<<<<<<<<<<<<<<<<<<
+              return false; // ADICIONAR <<<<<<<<<<<<<<<<<<<
+            } // ADICIONAR <<<<<<<<<<<<<<<<<<<
+         } // ADICIONAR <<<<<<<<<<<<<<<<<<<
+} // ADICIONAR <<<<<<<<<<<<<<<<<<<
